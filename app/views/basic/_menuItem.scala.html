@@ -1,0 +1,10 @@
+@(name:String, icon:String, url:String, activeMenu:String ="", right :String ="")
+
+@if(right == "" || com.mbrdi.anita.basic.security.Authorizer.hasAccess(session(), right)) {
+	@if(session().get("user_id") != null || session().get("id") != null) {
+		<li  menu="@name" @if(name.equals(activeMenu) ){ class="active"}>
+		     <a href="@url"><i class="@icon"></i> <span class="title"> @name</span></a>
+		</li>
+	}
+	
+}

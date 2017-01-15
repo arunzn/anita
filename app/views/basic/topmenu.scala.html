@@ -1,0 +1,81 @@
+@import com.mbrdi.anita.basic.controller.StaticContent
+@(title:String, help_item: String)
+
+
+<div class="row" style="border-bottom: 1px solid #dfdfdf; height: 50px;">
+		
+	<!-- Profile Info and Notifications -->
+	<div class="col-md-6 col-sm-8 clearfix">
+        <div style="font-weight: 400;display: inline-block">
+            <h2 style="font-size: 20px; border-bottom:2px solid #F59634">@title</h2>
+        </div>
+	</div>
+
+
+	<!-- Raw Links -->
+	<div class="col-md-6 col-sm-4 clearfix hidden-xs pull-right">
+
+
+
+		<ul class="list-inline pull-right  margin-left-10" >
+			<li class="sep"></li>
+
+			<li style="padding-top: 10px;">
+				<a href="/logout" onclick="deleteAllCookies();" style="font-size:16px">
+					Log Out <i class="entypo-logout right" ></i>
+				</a>
+			</li>
+		</ul>
+
+
+        <ul class="user-info pull-right pull-none-xsm">
+
+            <!-- Profile Info -->
+            <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src='@StaticContent.at("assets/img/logo.png")' alt="" class="img-circle" height="44" />
+                    @session().get("name")
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    <li class="caret"></li>
+                    <li>
+                        <a href="/profile">
+                            <i class="entypo-user"></i>
+                            Edit Profile
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
+
+
+    </div>
+</div>
+@if(flash().contains("MESSAGE") || flash().contains("ERROR") || flash().contains("WARNING")) {
+<div class="row" style="max-width:750px; margin: 5px auto;">
+				
+	@if(flash().contains("MESSAGE")) {
+    <div class="alert alert-success fade in">
+    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa  fa-times"></i></button>
+      	<strong>Well done! </strong> @flash().get("MESSAGE")
+    </div>
+    }
+	@if(flash().contains("ERROR")) {
+    <div class="alert alert-danger fade in">
+    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa  fa-times"></i></button>
+      	<strong>Oh snap! </strong> @flash().get("ERROR")
+    </div>
+    }
+    @if(flash().contains("WARNING")) {
+    <div class="alert alert-warning fade in">
+    	<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa  fa-times"></i></button>
+      	<strong>Warning!  </strong> @flash().get("WARNING")
+    </div>
+    }
+</div>
+}

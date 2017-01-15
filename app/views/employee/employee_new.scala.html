@@ -1,0 +1,190 @@
+@import com.mbrdi.anita.basic.controller.StaticContent
+@import com.mbrdi.anita.user.model.User
+
+@(employee: User, userForm : Form[_])
+
+@views.html.basic.header("Add Employee", "employee", "add Employee") 
+
+<script type="text/javascript">
+	function validateFields() {
+		
+        var join_date = $('#join_date').val();
+		if (join_date != null && join_date != "" && join_date.length > 8) {
+			join_date = join_date.replace('-', '');
+			join_date = join_date.replace('-', '');
+			$('#join_date').val(parseInt(join_date));
+		}
+		
+		if ($('#emp_no').val() == null || $('#emp_no').val() == '') {
+			$("#emp_no").css('background-color', '#fff0f0');
+			document.getElementById("emp_no").focus();
+			
+			return false;
+		} else if ($('#name').val() == null || $('#name').val() == '') {
+			$("#name").css('background-color', '#fff0f0');
+			document.getElementById("name").focus();
+			
+			return false;
+		} else if ($('#phone').val() == null || $('#phone').val() == '') {
+			$("#phone").css('background-color', '#fff0f0');
+			document.getElementById("phone").focus();
+			
+			return false;
+		} else
+			return true;
+
+	}
+
+	function addAttch(){
+		alert("Please save employee first.");
+	}
+	
+	function populateState() {
+		
+		var country = $('#country_id option:selected').val();
+		var url = window.location.protocol + "//"+window.location.host + "/country/" + country+"/states";
+		$('#state_id').html("");
+		$.ajax({
+		    url:url,
+		    type:'GET',
+		    dataType: 'json',
+		    success: function( json ) {
+		        $.each(json, function(key, value) {
+		            $('#state_id').append($('<option>').text(value).attr('value', key));
+		        });
+		    }
+		});
+	}
+	function populateCity() {
+		var state = $('#state_id option:selected').val();
+		var url = window.location.protocol + "//"+window.location.host + "/cityMap/" + state;
+		$('#city_id').html("");
+		$.ajax({
+		    url:url,
+		    type:'GET',
+		    dataType: 'json',
+		    success: function( json ) {
+		        $.each(json, function(key, value) {
+		            $('#city_id').append($('<option>').text(value).attr('value',key));
+		        });
+		    }
+		});
+
+	}
+
+	function populateArea() {
+		showLoader();
+		var state = $('#city_id option:selected').val();
+		var url = window.location.protocol + "//"+window.location.host + "/area/" + state +"/map";
+		$('#area_id').html("");
+		
+		$.ajax({
+		    url:url,
+		    type:'GET',
+		    dataType: 'json',
+		    success: function( json ) {
+		        $.each(json, function(key, value) {
+		            $('#area_id').append($('<option>').text(key).attr('value',value));
+		        });
+		        
+		        hideLoader();
+		    },
+		    error: function(data){
+		    	hideLoader();
+		    }
+		});
+	}
+
+	function changeStatus(val) {
+		if ($(val).attr('checked') == 'checked')
+		{
+			$('#is_delivery_boy').val(true);
+		} else {
+			$('#is_delivery_boy').val(false);
+		}
+	}
+</script>
+
+<div class="col-md-12 margin-top-20">
+	<form class="sky-form form-horizontal" method="post" onSubmit="return validateFields();">
+		<fieldset class="margin-top-20">
+		
+			<div class="form-group">
+				<label class="col-md-3 control-label">Employee Id</label>
+					<div class="col-md-3">
+					<input type="text" id="emp_no" class='form-control' placeholder='Employee Id' name="emp_no" maxlength="25" style="text-transform:uppercase" /> 
+				</div>
+                <label class="col-md-3 control-label">Name *</label>
+                <div class="col-md-3">
+                    <input type="text" id="name" class='form-control' placeholder='Name' name="name" maxlength="30" />
+                </div>
+            </div>
+			
+			<div class="form-group">
+				<label class="col-md-3 control-label">Phone No *</label>
+				<div class="col-md-1">
+					<input type="text" id="country_code" class='form-control @if(userForm.error("country_code")!= null){ state-error}'
+						name="country_code" readonly value="91" maxlength="3" /> @if(userForm.error("country_code")!= null){
+					<code>@userForm.error("country_code").message</code>
+					}
+				</div>
+				<div class="col-md-2">
+					<input type="text" id="phone" class='form-control number-field @if(userForm.error("phone")!= null){ state-error}' placeholder='Phone' name="phone" maxlength="10" /> 
+					@if(userForm.error("phone")!= null){
+						<code>@userForm.error("phone").message</code>
+					}
+				</div>
+                <label class="col-md-3 control-label">Email</label>
+                <div class="col-md-3">
+                    <input type="text" id="email" class='form-control' placeholder='Email Id' name="email" maxlength="50" />
+                    @if(userForm.error("email")!= null){
+                    <code>@userForm.error("email").message</code>
+                    }
+                </div>
+            </div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Gender</label>
+				<div class="col-md-3">
+					<select name="gender" id="gender" class="form-control">
+						<option value="2">Others</option>
+						<option value="0">Female</option>
+						<option value="1">Male</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-3 control-label">Designation</label>
+				<div class="col-md-3">
+					<input type="text" id="designation" class='form-control' placeholder='Designation'
+						name="designation" maxlength="25" /> 
+				</div>
+				<label class="col-md-3 control-label">Department</label>
+				<div class="col-md-3">
+					<input type="text" id="department" class='form-control' placeholder='Department'
+						name="department" maxlength="25" /> 
+				</div>
+			</div>
+			
+
+			<div class="form-group">
+				<label class="col-md-3 control-label">Join Date</label>
+				<div class="col-md-3">
+					<input type="text" id="join_date" class='form-control datepicker' placeholder='Join Date' name="join_date" maxlength="12" /> 
+				</div>
+			</div>
+
+		</fieldset>
+		<footer>
+			<button type="button" class="btn-u btn-u-default" onclick="window.history.back();">
+				<i class='fa fa-arrow-left'></i>
+			</button>
+			<button class="btn-u btn-u-sea" type='submit'>
+				<i class="fa fa-floppy-o"></i>
+			</button>
+		</footer>
+	</form>
+	
+</div>
+
+@views.html.basic.footer()

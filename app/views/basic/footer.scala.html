@@ -1,0 +1,125 @@
+@import com.mbrdi.anita.basic.controller.StaticContent
+@()
+	</div>
+</div><!--/wrapper-->
+
+
+<div class="footer-v1">
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p>
+						2016 &copy; Mercedes Benz Research and Development India Private Limited.. ALL Rights Reserved.
+						| <a href="/privacy" target="_blank"> Privacy Policy </a> @if(session().get("name") == null){  | <a href="/faq" target="_blank"> FAQ </a> } | <a href="/terms" target="_blank"> Terms of Service </a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div><!--/copyright-->
+</div>
+
+
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href='@StaticContent.at("assets/css/theme-colors/default.css")' id="style_color">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href='@StaticContent.at("assets/css/custom.css")'>
+	
+	<!-- JS Global Compulsory -->
+
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript" src='@StaticContent.at("assets/plugins/back-to-top.js")'></script>
+	<!-- JS Page Level -->           
+	<script type="text/javascript" src='@StaticContent.at("assets/js/app.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("assets/js/pages/index.js")'></script>
+	
+	
+	
+	<!--[if lt IE 9]>
+	    <script src='@StaticContent.at("assets/plugins/respond.js")'></script>
+	    <script src='@StaticContent.at("assets/plugins/html5shiv.js")'></script>
+	<![endif]-->
+	
+
+
+	<!-- Imported styles on this page -->
+	<!-- Bottom scripts (common) -->
+	<script src='@StaticContent.at("neon/js/gsap/main-gsap.js")'></script>
+	<script src='@StaticContent.at("neon/js/joinable.js")'></script>
+	<script src='@StaticContent.at("neon/js/resizeable.js")'></script>
+	<script src='@StaticContent.at("neon/js/neon-api.js")'></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src='@StaticContent.at("neon/js/neon-custom.js")'></script>
+
+	<script>
+	
+
+	 function showLoader(){
+		 $('#preloader').show();
+		 return true;
+	 }
+	 
+	 function hideLoader(){
+		 $('#preloader').hide();
+		 return true;
+	 }
+
+	 $( document ).ready(function() {
+
+		$('.datepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+		});
+
+		$(".datepicker-yearmonth").datetimepicker( {
+			format: 'YYYY-MM'
+		});
+
+		$('.timepicker').datetimepicker({
+            format: 'HH.mm',
+            stepping: 15,
+            useStrict:true
+        });
+	 });
+
+	  //called when key is pressed in textbox
+	$(".number-field").keypress(function (e) {
+	     //if the letter is not digit then display error and don't type anything
+	     if (e.which != 45 && e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+	        //display error message
+	        //$("#errmsg").html("Digits Only").show().fadeOut("slow");
+	               return false;
+	    }
+	});
+	
+	$(".float-field").keypress(function (e) {
+	     //if the letter is not digit then display error and don't type anything
+	     /*
+	    	Modified by Rohit Anand
+	    	Replaced e.keyCode to e.which to fix firefox issue for not accepting decimal values.	     
+	     */
+	     if (e.which != 45 && e.which != 8 && e.which != 0 &&  (e.which != 46 || this.value.indexOf('.') != -1/*this.value.split('.').length >= 2*/) && (e.which < 48 || e.which > 57)) {
+	        //display error message
+	        //$("#errmsg").html("Digits Only").show().fadeOut("slow");
+	               return false;
+	    }
+
+	});
+
+	function activateDatePicker(){
+	    setTimeout(function(){
+
+            $('.timepicker').datetimepicker({
+                format: 'HH.mm',
+                stepping: 15,
+                useStrict:true
+            });
+        }, 500);
+	}
+
+	</script>
+
+</body>
+</html>	

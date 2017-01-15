@@ -1,0 +1,523 @@
+# Override default Play's validation messages
+
+
+# --- Constraints
+constraint.required=Required
+constraint.min=Minimum value: {0}
+constraint.max=Maximum value: {0}
+constraint.minLength=Minimum length: {0}
+constraint.maxLength=Maximum length: {0}
+constraint.email=Email
+
+
+# --- Formats
+format.date=Date (''{0}'')
+format.numeric=Numeric
+format.real=Real
+
+
+# --- Errors
+error.invalid=Invalid value
+error.required=This field is required
+error.number=Numeric value expected
+error.real=Real number value expected
+error.min=Must be greater or equal to {0}
+error.max=Must be less or equal to {0}
+error.minLength=Minimum length is {0}
+error.maxLength=Maximum length is {0}
+error.email=Valid email required
+error.pattern=Must satisfy {0}
+
+
+### --- ZOYRIDE START
+
+
+### --- Home
+zoyride=Zoyride
+home=HOME
+aboutus=About Us
+features=Features
+pricing=Pricing
+services=Services
+contact=Contact
+message=Message
+sendMessage=Send Message
+basic.intro=Focused at making Rides Zoyride
+basic.introExplanation=At Zoyride we put Ideas, Intelligence and Information Technology to make your rides sure, secure and assured.
+basic.intro1=We take security seriously.
+basic.introExplanation1=We care about your security. Dont take our words for it, See it yourself !
+basic.intro2=Empowering you with Cutting Edge Techology.
+basic.introExplanation2=Bring your travel infrastructure onto our platfrom and start using it for free.
+basic.home.aboutUs=Zoyride is technology start-up wants to bridge the gap between the driver and the rider. We are a team of highly dynamic, young and experienced geeks, who are trying hard to provide hassle free journey. Zoyride gives a platform where you can coordinate with drivers, get notified in advance about vehicle delay, or assured your closed one reach their places safely.
+basic.home.our_offering=Our Offering
+basic.home.missionDetail=To revolutionize the way we travel.
+basic.home.missionTime=TIME IS MONEY
+basic.home.missionTimes=Waiting for your ride is over. Through Technlogy we try to save your precious little time always.
+basic.home.missionOptimising=OPTIMISING TRAVEL THROUGH TECHNOLOGY.
+basic.home.missionOptimisingDetl=We are focused on using intelligent ideas to provide optimised travel time and path to save precious planet earth.
+basic.home.zeroAdd=ZERO ADVERTISEMENT.
+basic.home.zeroAddDetl=We are committed to never to show you any advertisement.
+basic.home.thought=Hoping for loved ones arrive their places safely. Why don’t you just ensure it?
+basic.home.whatProve=What We Provide
+basic.home.location=Track Location
+basic.home.locationDetail=Locate your vehicles/friends/drivers or your loved ones.
+basic.home.surveillance=Surveillance
+basic.home.surveillanceDetl=Do real time surveillance inside the vehicle, and assure the safety of your dear ones.
+basic.home.trackAproveByAdmin=[track] approved by Admin
+basic.home.trackReqAproved=Your request for tracking [track] has approved by Admin, now you can track your ride.
+basic.home.trackBlock=[track] blocked by Admin
+basic.home.trackBlockByAdmin=You have blocked by Admin for tracking [track], please contact Admin for details.
+basic.home.surveAllow=Surevillance allowed for [track]
+basic.home.surveAllowByAdmin=You have allowed by Admin to do surveillance for track [track].
+basic.home.surveBlock=Surveillance blocked for [track]
+basic.home.surveBlockByAdmin=You have blocked by Admin for doing surveillance of track [track], please contact Admin for details.
+basic.home.vehicleAlreadyAdded=Vehicle is already added.
+basic.vehicleDeleted=[route] Deleted
+basic.vehicleDeletedByAdmin=[route] has deleted by Admin, you are no longer able to track this ride. Please contact Admin for details.
+basic.home.notifications=Notifications & Chats
+basic.home.notificationsDetl=Get advance notifications for vehicle delay or breakdown, and get free from boredom of waiting.
+basic.home.newFeature=New Feature on request
+basic.home.newFeatureDetl=Based on your feedback, we also offer on request new feature development in our app at free of cost.
+basic.home.vehicleManagement=Vehicles
+basic.home.vehicleManagementDetl=Managing your vehicle becomes very easy with Zoyride, you can track and do surveillance inside the vehicles.
+basic.home.ZeroAddv=Zero Advertisement
+basic.home.ZeroAddDetals=We do not believe in flooding our app with advertisement for making money.
+basic.forUsers=For Users
+basic.user.service1=Users connect with their loved ones and assure their security.
+basic.user.service2=Hassle free ride without waiting
+basic.user.service3=Get advance notifications of vehicle delay
+basic.user.service4=Free
+basic.user.service5=Track your vehicle/drivers/friends/loved ones location
+basic.user.service6=Chat with drivers and guardian
+basic.user.service7=Optionally share location with guardian
+basic.forDrivers=For Drivers
+basic.driver.service1=Drivers connect with their riders get tracked and send notifications.
+basic.driver.service2=Connect with their riders
+basic.driver.service3=Send notifications of vehicle delay or breakdown to their riders
+basic.driver.service4=Optimize travel route
+basic.forOrganizations=For Organizations
+basic.corp.services=We not only help you manage your fleet but also its riders. We connect both for hassle free joyride.
+basic.corp.services1=Add vehicles on app
+basic.corp.services2=Vehicle management
+basic.corp.services3=Optimization of travel route
+basic.corp.services4=Connect with their users, send notifications and chat with them
+basic.corp.services5=Online tracking vehicles/drivers
+basic.corp.services6=Surveillance inside the vehicles
+basic.corp.services7=Optimized utilisation of fleet
+basic.corp.services8=Control over driver app
+basic.home.help=How may we help you?
+basic.home.pricing=Plans & Pricing 
+basic.home.pricing1=Price (Per year/Vehicle)
+basic.home.pricing2=No. of Vehicles
+basic.home.pricing3=No. of Users
+basic.home.pricing4=No.of Drivers
+basic.home.pricing5=Reports
+basic.home.pricing6=User Notifications and Chats
+basic.home.pricing7=24/7 Live Support
+basic.home.pricing8=Vehicle Management
+basic.home.pricing9=New Feature on request
+basic.home.pricing10=Group Messaging
+basic.home.pricing11=Optimize Travel Route
+basic.home.pricing12=Mobile Status (Battery, Speed, Network)
+basic.home.pricing13=Control over driver App
+basic.home.pricing14=Multiple Admin
+basic.home.unlimited=Unlimited
+basic.home.pricingPrimium=Premium
+basic.home.pricingBasic=Free Tier
+basic.home.pricingEnterprise=Enterprise
+basic.home.upto=Up to 10
+
+
+### --- Login 
+
+login=Login
+Username=Username
+email=Email
+password=Password
+emaiL=Email
+signin=SIGN IN
+user=USER
+addUser=Add User
+driver=BE A DRIVER
+corp=CORPORATE ACCOUNT
+phone=Phone
+phoneNo=Phone No
+zone=Zone
+staySignin=Stay sign in
+userLogin=User Login
+corpLogin=Corporate User Login
+driverLogin=Driver Login
+forgotPass=Forget your Password ?
+forgotPass1=No worries,
+forgotPass2= click here 
+forgotPass3=to reset your password.
+userSignup=New user sign up here
+driverSignup=Driver SignUp
+corpSignup=Create a corporate account
+userLogin=User Login
+signUp=Sign Up
+login=Login
+basic.error.incorrectPasswordEmail=The email or password you entered is incorrect!
+basic.warning.field=Please fill all the fields !
+basic.corp.changePassword=Your Password have been changed and send on your registered email.
+basic.email.registration=Your password for Zoyride corporate account is: 
+basic.email.corpUserRegistration=You are appointed as sub-admin by 
+basic.email.corpUserRegistration1=Please login ZOYRIDE with http://zoyride.com/corp/login.
+basic.error.invalidInformation=Invalid information provided.
+basic.user.changePassword=Your Password have been changed and send on your registered phone number.
+basic.error.incorrectPasswordPhone=The phone or password you entered is incorrect !
+basic.user.flashConfMessage=Thank you for registering. Your password is sent to your mobile phone. Please change password after login.
+basic.corp.flashConfMessage=Your Corporate Account has been created successfully. Password is sent to your email. Please login to access your profile.
+basic.emailAlreadyRegis=Email already registered.
+basic.numberAlreadyRegis=Phone already registered.
+basic.home.flashConfMessage=Thank You for contacting us. We will get back to you later
+basic.adminuser.exist=Sorry this admin user already exists
+
+
+### --- signup
+basic.acceptConditons=Please Fill the Fields And Accept the Terms and Conditions.
+basic.invalidPhone=Not a valid Phone Number.
+basic.warning.refNoSame=Refree no and admin mobile no cannot be same.
+terms=I have read and agree to the Terms and Conditions.
+basic.alreadyRegister=Create An Account
+basic.corporateRegister=Create a Corporate Account
+alreadySignup=Already Signed Up? Click 
+alreadySignup1=Sign In
+alreadySignup2=to login your account.
+orgType=Organization Type
+orgName=Organization Name
+country=Country
+state=State
+city=City
+orgAdd=Organization Address
+adminName=Admin Name
+adminMob=Admin Mob No 
+officePhone= Phone Office (Optional)
+reffPhone=Refree Phone No.(Optional)
+basic=Zoyride Password
+profile=Profile
+register=Register
+name=Name
+fillingstation=Filling Station
+gender=Gender
+address=Address
+resetPassword=Reset Password
+logOUT=LOGOUT
+welcome=WELCOME
+admin=Admin
+save=Save
+welCome=Welcome
+male=Male
+female=Female
+other=Other
+
+
+###--- profile
+profile.user.deleteProf=Are you sure you want to delete ?
+profile.manage=Manage your Name, ID and Email Addresses.
+profile.detail=Below are the name and email addresses on file for your account.
+profile.setting=Manage your Security Settings
+profile.password=Change your password.
+profile.passwordMatchAlert=the password you have entered not matched!
+profile.paymentSetting=Manage your Payment Settings
+profile.paymentOption=Below are the payment options for your account.
+profile.notiSetting=Manage your Notifications.
+profile.notiSettingDetail=Below are the notifications you may manage.
+profile.delete=Delete your Account
+profile.verificationMessage=A verification code is send to your registered mobile no.
+profile.delete.confirmation=Do you want to delete your profile ?
+profile.delete.confMessage=Please enter the verification code send to your registered mobile no.
+profile.changePassEmail=Your password has been changed to:   
+profile.changePassNoti=Your password has been changed successfully.
+profile.updateNoti=Your profile has been updated.
+profile.selectCountry=Please select State or Country.
+profile.user.deleteSendMessNoti=A verification code is send to your registered mobile no.
+profile.user.deleteConfNoti=You have successfully deleted your Zoyride account.
+profile.user.deleteCodeMatchNoti=The code you entered does not match. Please try again.
+profile.imageSize.warning=Image must be less than 300kb.
+uploadProfilePicture=Upload profile picture
+uploadPicture=Upload picture
+editProfile=Profile
+changePassword=Change Password
+NotiSetting=Notification Settings
+deleteProf=Delete Profile
+streetAddress=Street Address
+enterName=Enter your Name
+enterEmail=Enter your Email
+enterPassword=New Password
+enterPass=Enter your password
+saveChanges=Save Changes
+enterConfPassword=Confirm Password
+enterConfPass=Confirm your password
+enterfillingstation= Enter filling station
+reset=Reset
+emailNoti=Email notification
+proceed=Proceed
+varificationCode=Verification Code
+delete=Delete
+cancel=Cancel
+passwordChanged=Password Changed
+countryCode=Country Code
+iWorkFor=I Work for 
+close=Close
+profileCorporate=Profile/Corporate
+basic.changePassword=Your password has been changed and a temporary password has sent to your e-mail.
+changePhoneNo=Change Phone
+###---- upload file
+fileUploaded=File Uploaded
+upload=Upload
+
+
+###-----feedback
+feedbackgive=Give Feedback
+feedbacksmy=My Feedbacks
+vehicles=Vehicles
+excellent=Excellent
+good=Good
+average=Average
+poor=Poor
+veryBad=Very Bad
+onTime=On Time
+beforeTime=Before Time
+late=Late
+veryLate=Very Late
+comment=Comment
+date=Date
+back=Back
+feedback=Feedback
+submit=Submit
+time=Time
+cleanliness=Cleanliness
+rideRating=Ride Rating
+driveRating=Drive Rating
+overallFeedback=Overall Feedback
+basic.feedback.message=Thank you for your feedback,we will get back to you shortly.
+
+
+###----ticketss
+ticket=Tickets
+createSupportTicket=Create Support Ticket
+createdBy=Created By
+ticketType=Ticket Type
+status=Status
+status_emp=Status(Duty hour/Vacation)
+action=Action
+createdOn=Created On
+note=Note
+addTicket=Add Ticket
+basic.ticket.editWarning=Ticket can't be editable after Status is closed
+ticketHeader=Ticket Header
+
+####----guardian
+guardian=Guardian
+guardians=Guardians
+addGuardian=Add Guardian
+student=Student
+students=Students
+addStudent=Add Student
+relation=Relation
+
+
+###----Feature request
+header=Header
+featureRequest=Request a new feature
+Description=Description
+accepted=ACCEPTED
+inDevelopment=IN DEVELOPMENT
+rejected=REJECTED
+basic.feature.warning=You can raise maximum 3 Request for New Feature.
+
+
+###--- Driver Management
+driver=Drivers
+DRIVER=DRIVER
+addDriver=Add Driver
+driverDetail=Driver Detail
+photo=Photo
+appStatus=App Status
+addNewDriver=Add New Driver
+editDriverDetail=Edit Driver Details
+driverDetails=Driver Details
+unverified=UNVERIFIED
+verified=VERIFIED
+restricted=RESTICATED
+wanted=WANTED
+driverlic=Driver's Licence
+homeAdd=Home address
+officeAdd=Office address
+month=Month
+year=Year
+dlMonth=DL issue month
+dlYear=DL issue year
+addDriverNoti=has added you as driver
+journey=Journey
+travelTime=Travel Time
+assignDriver=Assign Driver
+
+
+###----vehicless
+allVehicles=All Vehicles
+addVehicle=Add new Vehicle
+routeNo=Route No
+vehicleRegNo=Vehicle Reg. No
+trackers=Trackers
+selectVehicle=Select Vehicle
+dutyHour=Duty Hours
+follower=Followers
+survPics=Surveillance photos
+riderProfile=Ride Profile
+regNo=Reg No.
+mfgYear=Mfg Year
+uniqueId=Unique Id
+vehicleType=Vehicle type
+seat=Seats
+color=Color
+addNew=Add New
+vehicleNo=Vehicle No
+hatchback=Hatchback
+sedan=Sedan
+bus=Bus
+white=White
+red=Red
+blue=Blue
+yellow=Yellow
+black=Black
+silver=Silver
+orange=Orange
+green=Green
+mobileNo=Mobile No
+startTime=Start Time
+endTime=End Time
+startPlace=Start Place
+endPlace=End Place 
+days=Days
+lastRunDate=Last run date 
+hour=Hour
+minute=Minute
+selectDate=Select Date
+vehicleDetails=Vehicle Detail
+manufactureYear=Year of Manufacture
+vehicle=Vehicle
+basic.vehicle.noti=Notification to User's Tracking this ride
+basic.vehicle.vehicleSerPicWarning=Vehicle pictures are not available on selected date and time. Please select proper date and time.
+
+###--- Travellers and Employee
+notificationToUser=Notification to User
+allTravellers=All Travellers
+uploadFile=Upload file
+uploadTraveller=Upload Traveller's
+upload=Upload
+scale=Scale
+age=Age
+allEmployees=All Employees
+addNewTracker=Add new Tracker
+uploadEmployees=Upload Employees
+uploadVendors=Upload Vendors
+uploadTrackers=Upload Trackers
+updateEmployees=Update Employees
+add=Add
+addEmployeesInformation=Add Employees Information
+updateEmployeesInformation=Update Employees Information
+update=Update
+addNewEmployee=Add New Employee
+
+
+###--- Tracker
+allTracker=All Trackers
+basic.track.request=wants to track you. Approve/Reject
+basic.userContr.warning=Your Mobile Number Is Already Registered.Please Visit Forget Password Link.
+basic.track.warning=Vehicle is already being tracked.
+wrongInformation=Wrong information.
+basic.vehicleLocation.warning=Vehicle location unknown.
+basic.dutyHour.warning=can select maximum 6 days and 9 working hours.
+invaliKeyValue=Invalid key value.
+basic.vehicleUpdate.message=Vehicle profile has been updated.
+basic.vehicleDelete.message=Selected vehicle deleted successfully.
+basic.insuranceDelete.message=Selected insurance deleted successfully.
+trackVehicle=Track Vehicle
+institute=Institute
+
+
+###--- Corp Config
+corporateCongi=Corporate Configuration
+survPicInt=Surveillance Pic interval
+locationUpdate=Location Update interval
+survPicIntSec=Surveillance Pic interval(in second)
+locationUpdateSec=Location Update interval(in second)
+
+###--- Corporate User
+corporateUser=Admin Users
+editUserDetail=Edit User Detail
+
+
+###--- Left menu
+dashboard=Dashboard
+driverManagement=Drivers
+employees=Employees
+overall=Overall
+tickets=Ticket
+requestNewFeature=Request New Feature
+approveTracker=Approve Tracker
+corporateConfiguration=Configuration
+track=Track
+basic.aproveTracker.warning=There is no route added.
+
+###---Dashboard
+totalTrackers=Total Trackers
+totalPendingApprovals=Approvals Pending
+totalDrivers=Total Drivers
+totalVehicles=Total Vehicles
+location=Location
+allActiveTrackers=All Active Trackers
+numberofTrackersByVehicle=Number of Trackers By Vehicle
+type=Type
+dashboardCorporate=Dashboard
+basic.dashboard.baselocationWarning=You base location is not set. Please install and use Zoyride Mobile App to set Base Location. This must be location of your Organization.
+
+
+###---SMS
+
+basic.sms.deviceRegistration=Dear $1 thanks for registering with Zoyride. Your verification code is $2
+basic.sms.notiOnAdminPhone=Dear $1 thanks for registering with Zoyride, check your mail for login details.
+basic.sms.newPassword=Your password has reset to $1. Please change your password after login.
+basic.sms.guardianAddedByUser=Dear $1 You are added as guardian by $2 on Zoyride. Please download and install Zoyride app from $3 and get connect.
+basic.sms.driverAddedByCorp=Dear $1 You are added as driver by $2. Please download and install Zoyride driver app from $3 and get connect.
+basic.sms.onRefNo=Hey $1 your referral $2 has signed-up on Zoyride. Check your Zoyride account $3 for credits.
+basic.sms.delete=Dear $1 Please enter the code $2 to delete your account.
+basic.sms.trackVehicle=Dear User, $1 has added $2 in your track list, use Zoyride app $3 to track and do surveillance inside vehicle.
+
+###----Route
+route.error.duplicate_name=Route is already exist.
+route.error.duplicate_vehicle_name=Vehicle is clashing with another route.
+route.error.duplicate_driver_name=Driver is clashing with another route.
+route.error.to_time_not_set=Travel TO time with route is not set.
+route.error.fro_time_not_set=Travel FRO time with route is not set.
+
+AccessRights.BOOKING = Allow to manage Booking
+AccessRights.ADHOC_ROUTES = These are temporary routes created on day basis. Access allow supervisor to create adhoc route in assigned zone.
+AccessRights.ROUTES = Routes includes journey details and time interval. This access right allow supervisor to create regular routes in assigned zone. 
+AccessRights.FUEL = Add or withdraw fuel in the vehicles assigned in the allocated zone. 
+AccessRights.TRIP = Allow supervisor to view Trip History.
+AccessRights.MAINTENANCE = Add maintenance cost or expenses for the vehicles assigned in the allocated zone. 
+AccessRights.VEHICLE = Allow supervisor to manage vehicles assigned in allocated zone. They can assign vehicles in the routes. 
+AccessRights.ROSTER = Allow supervisors to create/view roster for the clients assigned in their allocated zones. 
+AccessRights.DRIVER = Allows supervisors to manage drivers assigned in their allocated zones. 
+AccessRights.EMPLOYEE = Allows supervisor to manage employees assigned in their allocated zones.
+AccessRights.TRACKER = Allow supervisors to approve trackers request in their allocated zones.
+AccessRights.ZONE = Supervisors will allow to work with clients, vehicles, and drivers etc. only present in the allowed zone. 
+AccessRights.SUPERVISOR = This right will give access to create superviors in their assigned zone.
+AccessRights.TAX = Supervisors will able to add/edit the taxes in assigned zones.
+AccessRights.REPORTS = Supervisors will access the reports in permitted zone.
+AccessRights.CORP_CONF = corporation configuration management
+AccessRights.VENDOR = Supervisors will manage vendors assign in their permitted zone.
+AccessRights.CLIENT = Supervisors will manage clients assign in their permitted zone.
+AccessRights.CONFIG = Supervisors will able to manage the configuration in zone assigned by admin.
+AccessRights.TRAVELLER = Supervisors will able to manage the travellers permitted in their assign zones. 
+AccessRights.SALEMAN = Supervisors will have permission to manage salesman assign in their approved zones.
+AccessRights.TRAVEL_TICKET = Supervisors can accept/edit travels tickets requests comes in their assigned zones.
+AccessRights.SPOT_BOOKING = Have right to create/edit spot booking.
+AccessRights.TARIFF = Have permission to create, add or edit tariff details for clients assigned in their zones.   
+AccessRights.Master_Ext = Allow supervisor to add fields in the master table.
+AccessRights.SALARY_APPROVER = Allow supervisor to approve salary of employees.
+AccessRights.INVESTMENT_APPROVER = Allow supervisor to approve investment declaration of employees.
+AccessRights.SUPPORT_TICKET = Allow supervisor to view Support Tickets.

@@ -1,0 +1,95 @@
+@import com.mbrdi.anita.basic.controller.StaticContent
+
+@(title: String)
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>@title | @Messages("welCome")...</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href='@StaticContent.at("zicons/ic_logo.png")'>
+    
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href='@StaticContent.at("plugins/bootstrap/css/bootstrap.css")'>
+    <link rel="stylesheet" href='@StaticContent.at("css/style.css")'>
+    <link rel="stylesheet" href='@StaticContent.at("css/themes/dark.css")' >
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href='@StaticContent.at("plugins/line-icons/line-icons.css")' >
+    <link rel="stylesheet" href='@StaticContent.at("plugins/font-awesome/css/font-awesome.min.css")'>
+    <link rel="stylesheet" href='@StaticContent.at("css/style_home.css")'>
+    
+    <link rel="stylesheet" href='@StaticContent.at("plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css")'>
+    
+    <link rel="stylesheet" href='@StaticContent.at("plugins/glyphicons-pro/glyphicons_halflings/web/html_css/css/halflings.css")'>
+    <link rel="stylesheet" href='@StaticContent.at("plugins/glyphicons-pro/glyphicons_social/web/html_css/css/social.css")'>
+    <link rel="stylesheet" href='@StaticContent.at("plugins/glyphicons-pro/glyphicons_filetypes/web/html_css/css/filetypes.css")'>
+
+    <!-- CSS Theme -->    
+    <link rel="stylesheet" href='@StaticContent.at("css/themes/default.css")' id="style_color">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href='@StaticContent.at("css/custom.css")'>
+	
+	<!-- JS Global Compulsory -->			
+	<script type="text/javascript" src='@StaticContent.at("plugins/jquery-1.11.1.min.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("plugins/jquery-migrate-1.2.1.min.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("plugins/bootstrap/js/bootstrap.min.js")'></script>
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript" src='@StaticContent.at("plugins/back-to-top.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("plugins/flexslider/jquery.flexslider-min.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("plugins/parallax-slider/js/modernizr.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("plugins/parallax-slider/js/jquery.cslider.js")'></script>
+	<!-- JS Page Level -->           
+	<script type="text/javascript" src='@StaticContent.at("js/app.js")'></script>
+	<script type="text/javascript" src='@StaticContent.at("js/pages/index.js")'></script>
+	
+	<script type="text/javascript" src='@StaticContent.at("plugins/jquery-ui-1.10.3.custom.js")'></script>
+	
+	<script type="text/javascript" src='@StaticContent.at("js/plugins/jquery.numeric.min.js")'></script>
+	
+	<link href='@StaticContent.at("plugins/bootstrap-select/dist/css/bootstrap-select.css")' rel="stylesheet">
+	<script src='@StaticContent.at("plugins/bootstrap-select/dist/js/bootstrap-select.js")' type="text/javascript"></script>
+
+    <script type="text/javascript" src='@StaticContent.at("js/bootstrap/moment-with-locales.js")'></script>
+    <script type="text/javascript" src='@StaticContent.at("js/bootstrap/bootstrap-datetimepicker.js")'></script>
+    <link href='@StaticContent.at("css/bootstrap/bootstrap-datetimepicker.css")' rel="stylesheet">
+	
+	<!--[if lt IE 9]>
+	    <script src='@StaticContent.at("plugins/respond.js")'></script>
+	    <script src='@StaticContent.at("plugins/html5shiv.js")'></script>    
+	<![endif]-->
+ 	<script type="text/javascript">
+ 	
+
+	$(function(){
+        $('.datepicker').datetimepicker({
+            format: 'YYYY-MM-DD'
+		});
+		
+		$(".number-field").numeric();
+		
+	});
+
+	</script>
+	
+</head>	
+
+<body>
+
+<div id="preloader" style="display: none;">
+    <div id="loading" style="background: url(@StaticContent.at("img/preloader.gif")) center no-repeat;"></div>
+</div>
+
+
+<div class="wrapper">

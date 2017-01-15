@@ -1,0 +1,126 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+#GET     /assets/*file               		@controllers.Assets.at(path="/public", file)
+#GET     /static/*file               		@com.mbrdi.anita.basic.controller.StaticContent.at(file)
+
+GET    /assets/*file                        @controllers.Assets.versioned(path="/public", file: Asset)
+
+##=========================================================================================================================================================
+##=======================================       APPLICATION CONTROLLER    =================================================================================
+##=========================================================================================================================================================
+
+# Home page
+GET     /                                       @com.mbrdi.anita.basic.controller.Application.index()
+GET    /test/:did                               @com.mbrdi.anita.basic.controller.Application.test(did:String)
+
+
+POST    /                                       @com.mbrdi.anita.user.controller.LoginController.login()
+GET     /logout                                 @com.mbrdi.anita.user.controller.LoginController.logout()
+GET     /forgotpassword                         @com.mbrdi.anita.user.controller.LoginController.forgetPassword()
+POST    /forgotpassword                         @com.mbrdi.anita.user.controller.LoginController.doForgetPassword()
+GET     /changePassword                         @com.mbrdi.anita.user.controller.LoginController.changePassword()
+POST    /changePassword                         @com.mbrdi.anita.user.controller.LoginController.doChangePassword()
+
+
+##=========================================================================================================================================================
+##=======================================       DASHBOARD CONTROLLER    =================================================================================
+##=========================================================================================================================================================
+
+# Home page
+GET     /dashboard                              @com.mbrdi.anita.dashboard.controller.DashboardController.dashboard()
+GET     /dashboard/statistics                   @com.mbrdi.anita.dashboard.controller.DashboardController.getStatistics()
+GET     /trips                                  @com.mbrdi.anita.dashboard.controller.DashboardController.trips()
+GET     /trip/data                              @com.mbrdi.anita.dashboard.controller.DashboardController.tripData()
+POST    /trip/download                          @com.mbrdi.anita.dashboard.controller.DashboardController.downloadTrips()
+GET     /analytics/:date                        @com.mbrdi.anita.dashboard.controller.DashboardController.analyticsSimple(date: Integer)
+
+##=========================================================================================================================================================
+##=======================================       EMPLOYEE CONTROLLER    ====================================================================================
+##=========================================================================================================================================================
+
+GET    /employees                                               @com.mbrdi.anita.user.controller.EmployeeController.employees()
+GET    /employee/add                                            @com.mbrdi.anita.user.controller.EmployeeController.addEmployeePage()
+POST   /employee/add                                            @com.mbrdi.anita.user.controller.EmployeeController.addEmployee()
+GET    /employee/grid                                           @com.mbrdi.anita.user.controller.EmployeeController.employeeGrid()
+GET    /employee/:id/edit                                       @com.mbrdi.anita.user.controller.EmployeeController.editEmployeePage(id:String)
+POST   /employee/:id/edit                                       @com.mbrdi.anita.user.controller.EmployeeController.editEmployee(id:String)
+GET    /employee/:id/delete                                     @com.mbrdi.anita.user.controller.EmployeeController.deleteEmployee(id:String)
+GET    /employee/:id/makeadmin                                  @com.mbrdi.anita.user.controller.EmployeeController.makeAdmin(id:String)
+GET    /employee/:id/unmakeadmin                                @com.mbrdi.anita.user.controller.EmployeeController.unmakeAdmin(id:String)
+POST   /upload/employees                                        @com.mbrdi.anita.user.controller.EmployeeController.uploadEmployees()
+#GET    /corp/employee/data                                     @com.mbrdi.anita.user.controller.EmployeeController.employeeData()
+POST   /corp/employee/download                                  @com.mbrdi.anita.user.controller.EmployeeController.downloadEmployees()
+
+
+##=========================================================================================================================================================
+##=======================================       USER-APP CONTROLLER    ====================================================================================
+##=========================================================================================================================================================
+
+# User registration
+POST   /app/user/update                                         @com.mbrdi.anita.user.controller.UserAppController.updateUser()
+GET    /app/user/:user_id/profile                               @com.mbrdi.anita.user.controller.UserAppController.getUser(user_id:String)
+
+#GET    /user/countries                                         @com.mbrdi.anita.user.controller.UserAppController.getCountries()
+#GET    /user/states                                            @com.mbrdi.anita.user.controller.UserAppController.getStates()
+#GET    /user/cities                                            @com.mbrdi.anita.user.controller.UserAppController.getCities()
+#GET    /user/areas                                             @com.mbrdi.anita.user.controller.UserAppController.getAreas()
+
+
+GET    /user/:user_id/notification/all                          @com.mbrdi.anita.user.controller.UserAppController.getNotification(user_id:String)
+
+POST   /app/user/email/register                                 @com.mbrdi.anita.user.controller.UserAppController.registerByEmail()
+POST   /app/user/email/verify                                   @com.mbrdi.anita.user.controller.UserAppController.verifyByEmail()
+POST   /app/user/email/resend_code                              @com.mbrdi.anita.user.controller.UserAppController.resendCode()
+POST   /app/reportbug                                           @com.mbrdi.anita.user.controller.UserAppController.reportBug()
+
+##=========================================================================================================================================================
+##==========================================     TRAVEL GROUP CONTROLLER    ===============================================================================
+##=========================================================================================================================================================
+
+GET    /app/travelgroup/init/:user_id                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.initData(user_id: String)
+#POST    /app/travelgroup/request/save                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.saveTravelRequest()
+POST    /app/travelgroup/find/pax                               @com.mbrdi.anita.travel.controller.TravelGroupAppController.allCoPassengers()
+#GET    /app/travelgroup/request/all                            @com.mbrdi.anita.travel.controller.TravelGroupAppController.allTravelGroups()
+
+POST    /app/travelgroup/request/update/:user_id                @com.mbrdi.anita.travel.controller.TravelGroupAppController.updateTravelRequest(user_id:String)
+POST    /app/travelgroup/request/delete                         @com.mbrdi.anita.travel.controller.TravelGroupAppController.deleteTravelRequest()
+
+POST    /app/travelgroup/group/delete                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.deleteTravelGroup()
+
+POST    /app/travelgroup/request/save/options                   @com.mbrdi.anita.travel.controller.TravelGroupAppController.saveTravelReqestNViewOptions()
+POST    /app/travelgroup/request/options                        @com.mbrdi.anita.travel.controller.TravelGroupAppController.fetchTravelRequestMatches()
+
+
+
+POST    /app/travelgroup/group/save                             @com.mbrdi.anita.travel.controller.TravelGroupAppController.saveTravelGroup()
+POST    /app/travelgroup/group/join                             @com.mbrdi.anita.travel.controller.TravelGroupAppController.joinTravelGroup()
+POST    /app/travelgroup/group/add/join                         @com.mbrdi.anita.travel.controller.TravelGroupAppController.joinAddTravelGroup()
+
+POST    /app/travelgroup/group/accept                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.acceptTravelRequest()
+POST    /app/travelgroup/group/update                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.acceptTravelRequestAndUpdateTrip()
+POST    /app/travelgroup/group/deploy                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.deployTravelGroup()
+POST    /app/travelgroup/journey/stop                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.stopTravelGroupJourney()
+POST    /app/travelgroup/event/notify                           @com.mbrdi.anita.travel.controller.TravelGroupAppController.notifyTripEvent()
+POST    /app/travelgroup/group/options                          @com.mbrdi.anita.travel.controller.TravelGroupAppController.fetchTravelGroupMatches()
+
+POST    /app/travelgroup/mydetails/:id                          @com.mbrdi.anita.travel.controller.TravelGroupAppController.myDetails(id: String)
+
+
+##=========================================================================================================================================================
+##=======================================       LOCATION-APP CONTROLLER    ================================================================================
+##=========================================================================================================================================================
+POST   /app/locdev/savelocation                                 @com.mbrdi.anita.location.controller.LocationAppController.saveLocation()
+POST   /app/locdev/bulk/savelocation                            @com.mbrdi.anita.location.controller.LocationAppController.saveBulkLocation()
+GET    /app/locdev/locfeed                                      @com.mbrdi.anita.location.controller.LocationAppController.fetchLocation()
+GET    /app/locdev/passengerLoc/:user_id                        @com.mbrdi.anita.location.controller.LocationAppController.passengerLocation(user_id:String)
+POST   /app/location/direction/path                             @com.mbrdi.anita.location.controller.LocationAppController.getPathLocations()
+
+
+##=========================================================================================================================================================
+##=======================================       TRIP-APP CONTROLLER    ================================================================================
+##=========================================================================================================================================================
+POST    /app/trip/saveEvents                   @com.mbrdi.anita.travel.controller.TripAppController.saveEvents()

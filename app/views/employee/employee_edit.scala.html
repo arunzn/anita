@@ -1,0 +1,318 @@
+@import com.mbrdi.anita.basic.controller.StaticContent
+@import com.mbrdi.anita.user.model.User
+@(user: User, userForm:Form[_])
+
+
+@views.html.basic.header("Edit Employee", "employee", "Update Employee")
+
+
+<script type="text/javascript">
+function validateFields() {
+    var join_date = $('#join_date').val();
+	if (join_date != null && join_date != "" && join_date.length > 8) {
+		join_date = join_date.replace('-', '');
+		join_date = join_date.replace('-', '');
+		$('#join_date').val(parseInt(join_date));
+	}
+	return true;
+}
+
+</script>
+
+<div class="row">
+    <div class="col-md-12 margin-top-20">
+        <form class="sky-form form-horizontal" method="post" onSubmit="return validateFields();">
+            <fieldset>
+                <div class="col-md-12 margin-top-20">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-12">Employee Id</label>
+                            <div class="col-md-12">
+                                <input type="text" id="emp_no" class='form-control' placeholder='Employee Id'
+                                       name="emp_no" value="@user.emp_no" maxlength="15"
+                                       style="text-transform:uppercase"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Name</label>
+                            <div class="col-md-12">
+                                <input type="text" id="name" class='form-control' placeholder='name' name="name"
+                                       value="@user.name" maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Gender</label>
+                            <div class="col-md-12">
+                                <select name="gender" class="form-control" id="gender">
+                                    <option value="2" @if(2== user.gender){ selected="true" }>Others</option>
+                                    <option value="0" @if(0== user.gender){ selected="true" }>Female</option>
+                                    <option value="1" @if(1== user.gender){ selected="true" }>Male</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Email</label>
+                            <div class="col-md-12">
+                                <input type="text" id="email" class='form-control' placeholder='Email'
+                                       name="email" value="@user.email" maxlength="50"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Phone No</label>
+                            <div class="col-md-4">
+                                <input type="text" id="country_code"
+                                       class='form-control @if(userForm.error("country_code")!= null){ state-error}'
+                                       name="country_code"
+                                       readonly value="91" maxlength="3" readonly="readonly"/>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" id="phone"
+                                       class='form-control number-field @if(userForm.error("phone")!= null){ state-error}'
+                                       placeholder='Phone'
+                                       name="phone" value="@user.phone" maxlength="10" readonly="readonly"/>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn-u btn-u-hover btn-u-sm btn-sm btn-default" data-toggle="modal"
+                                        data-target=".bs-changeNo-modal-sm" type="button"><i class=" icon-note"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Designation</label>
+                            <div class="col-md-12">
+                                <input type="text" id="designation" class='form-control' placeholder='Designation'
+                                       name="designation" value="@user.designation" maxlength="30"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Department</label>
+                            <div class="col-md-12">
+                                <input type="text" id="name" class='form-control' placeholder='department'
+                                       name="department" value="@user.department" maxlength="30"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-12">Join Date</label>
+                            <div class="col-md-12">
+                                <input type="text" id="join_date" class='form-control datepicker' placeholder='Join Date'
+                                       name="join_date" maxlength="10"/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="col-md-6 control-label"></label>
+                        <div class="col-md-6">
+                            @if(!"".equals(com.mbrdi.anita.user.controller.EmployeeController.getProfilePicURL(user._id))){
+                            <img data-toggle="modal" style="cursor: pointer; width: 400px; width: auto;"
+                                 data-target="#responsive" class="img-responsive img-bordered"
+                                 src='@com.mbrdi.anita.user.controller.EmployeeController.getProfilePicURL(user._id)'>
+                            } else {
+                            <img data-toggle="modal" style="cursor: pointer; width: 400px; width: auto;"
+                                 data-target="#responsive" class="img-responsive img-bordered"
+                                 src='@StaticContent.at("zicons/user-boy.png")'>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <footer>
+                <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">
+                    <i class='fa fa-arrow-left'></i>
+                </button>
+                <button class="btn-u btn-u-sea" type='submit'  onclick="showLoader()">
+                    <i class="fa fa-floppy-o"></i>
+                </button>
+                @if(user.notVerified != null && user.notVerified){
+                <a class="btn-u btn-u-blue" type='submit' href="/corp/employee/@user._id/markVerified">
+                    <span class="fa fa-check-square"></span> Mark Verified
+                </a>
+                }
+            </footer>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="responsive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="changeAction" action='/corp/employee/profile/@user._id/upload/pic' enctype="multipart/form-data"
+                  class="sky-form" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Upload Profile Pic</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 changeHeaderText">
+                            <p>
+                                <input class="form-control" type="file" id="file1" name="file" accept="image/*"/>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h4>@Messages("profile.imageSize.warning")</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-u btn-u-default" data-dismiss="modal">@Messages("close")</button>
+                    <button type='submit' onclick="showLoader();" class="btn-u btn-u-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+@*
+function populateCity() {
+
+	var state = $('#state_id option:selected').val();
+	var url = window.location.protocol + "//"+window.location.host + "/cityMap/" + state;
+	$('#city_id').html("");
+	$.ajax({
+	    url:url,
+	    type:'GET',
+	    dataType: 'json',
+	    success: function( json ) {
+	        $.each(json, function(key, value) {
+	            $('#city_id').append($('<option>').text(value).attr('value',key));
+	        });
+	    }
+	});
+
+}
+
+function populateState() {
+	
+	var country = $('#country_id option:selected').val();
+	var url = window.location.protocol + "//"+window.location.host + "/country/" + country+"/states";
+	$('#state_id').html("");
+	$.ajax({
+	    url:url,
+	    type:'GET',
+	    dataType: 'json',
+	    success: function( json ) {
+	        $.each(json, function(key, value) {
+	            $('#state_id').append($('<option>').text(value).attr('value', key));
+	        });
+	    }
+	});
+}
+
+function populateArea() {
+	showLoader();
+	var state = $('#city_id option:selected').val();
+	var url = window.location.protocol + "//"+window.location.host + "/area/" + state +"/map";
+	$('#area_id').html("");
+	
+	$.ajax({
+	    url:url,
+	    type:'GET',
+	    dataType: 'json',
+	    success: function( json ) {
+	        $.each(json, function(key, value) {
+	            $('#area_id').append($('<option>').text(key).attr('value',value));
+	        });
+	        
+	        hideLoader();
+	    },
+	    error: function(data){
+	    	hideLoader();
+	    }
+	});
+
+}
+
+var id= '@user._id';
+var app = angular.module("user", []);
+
+app.controller('userCtrl',function($scope, $http) {
+	
+$scope.exp_sl_no=0
+
+$scope.user = {}
+
+if (id != '') {
+
+    var myurl = window.location.protocol + "//" + window.location.host + "/user/" + id + "/userDetail";
+
+    $http.get(myurl).success(function(response) {
+        $scope.user = response;
+
+        if(response.join_date != null) {
+            var join_date = response.join_date.toString();
+            join_date = join_date.substring(0, 4) + "-" + join_date.substring(4,6) + "-" + join_date.substring(6, 8);
+             $('#join_date').val(join_date);
+        }
+    });
+}
+
+
+
+$scope.removeRow = function(index) {
+    if($scope.user.attachments[index].URL == null)
+        $scope.user.attachments.splice(index, 1);
+    else {
+        var field_id = $scope.user.attachments[index].id;
+        var myurl = window.location.protocol + "//" + window.location.host + "/corp/employee/" + id + "/attachment/" + field_id + "/delete";
+        var res = $http.get(myurl);
+        res.success(function(response) {
+            if(response == "success"){
+            alert( "Succesfully deleted");
+            var new_url = window.location.protocol + "//" + window.location.host  + "/corp/employee/" + id + "/edit";
+            window.location = new_url;
+            } else {
+                alert( "Some error occurs");
+            }
+        });
+    }
+}
+
+$scope.showSave = function(attachment){
+    if(attachment.isNew == 1)
+        return true;
+    else
+        return false;
+}
+
+$scope.showPic = function(attachment){
+    if(attachment.isNew == 1)
+        return false;
+    else
+        return true;
+}
+
+$scope.saveRow = function(attachment){
+    if (id != '') {
+        $('#'+ attachment.id).submit();
+    } else {
+        alert("Please save user first.")
+    }
+}
+
+$scope.getFormPostAction = function(attachment){
+    return '/corp/employee/'+ $scope.user._id + '/attachment/save';
+}
+
+});
+
+function changeStatus(val) {
+    if ($(val).attr('checked') == 'checked')
+    {
+        $('#is_delivery_boy').val(true);
+    } else {
+        $('#is_delivery_boy').val(false);
+    }
+}
+*@
+</script>
+
+@views.html.basic.footer()
